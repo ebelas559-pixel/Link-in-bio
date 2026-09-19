@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link in Bio | Nama Anda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 1. ANIMASI GRADIENT LATAR BELAKANG */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #1b052e, #492882, #2a0845, #7a42b8);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Menyembunyikan elemen yang keluar layar */
+            position: relative;
+            perspective: 1000px; /* Untuk efek 3D Parallax */
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 2. EFEK BOLA CAHAYA MELAYANG */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(212, 176, 255, 0.15); /* Ungu transparan */
+            filter: blur(25px); /* Efek cahaya menyebar */
+            animation: floatUp linear infinite;
+            z-index: 0;
+        }
+
+        /* Pengaturan ukuran, posisi, dan durasi masing-masing bola */
+        .orb:nth-child(1) { width: 150px; height: 150px; left: 10%; bottom: -150px; animation-duration: 12s; }
+        .orb:nth-child(2) { width: 80px; height: 80px; left: 35%; bottom: -80px; animation-duration: 16s; animation-delay: 2s; }
+        .orb:nth-child(3) { width: 220px; height: 220px; right: 15%; bottom: -220px; animation-duration: 18s; animation-delay: 4s; }
+        .orb:nth-child(4) { width: 100px; height: 100px; right: 45%; bottom: -100px; animation-duration: 14s; }
+        .orb:nth-child(5) { width: 180px; height: 180px; left: 60%; bottom: -180px; animation-duration: 20s; animation-delay: 6s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+        }
+
+        /* 3. KARTU GLASSMORPHISM */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 25px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Transisi untuk kelancaran efek mouse */
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        /* Elemen di dalam kartu (Foto, Teks, Tombol) */
+        .profile-pic {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #D4B0FF;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateZ(30px); /* Efek pop-up 3D */
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            transform: translateZ(20px);
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #D4B0FF;
+            font-weight: 300;
+            margin-bottom: 30px;
+            transform: translateZ(20px);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transform: translateZ(30px);
+        }
+
+        .link-btn {
+            display: block;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 400;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px) translateZ(10px);
+            border-color: #D4B0FF;
+            box-shadow: 0 10px 25px rgba(212, 176, 255, 0.2);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            transform: translateZ(10px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+
+    <div class="container" id="card">
+        <img src="profil.PNG" alt="Foto Profil" class="profile-pic">
+        
+        <h1 class="name">Gustav</h1>
+        <p class="bio">Digital Creator | Anime</p>
+        
+        <div class="links">
+            <a href="https://www.tiktok.com/@story140510" class="link-btn">Tiktok</a>
+            <a href="https://www.instagram.com/Gustav140510" class="link-btn">Instagram</a>
+            <a href="https://github.com/ebelas559-pixel/Knightbot-MD" class="link-btn">Github</a>
+            <a href="https://api.whatsapp.com/send/?phone=6289504337050" class="link-btn">WhatsApp</a>
+        </div>
+
+        <div class="footer">
+            © Gustav4
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+
+        // Mendeteksi pergerakan mouse di layar
+        document.addEventListener('mousemove', (e) => {
+            // Menghitung posisi kursor dari tengah layar
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            // Menerapkan rotasi 3D ke kartu
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Mengembalikan kartu ke posisi semula saat mouse keluar dari area browser
+        document.addEventListener('mouseleave', () => {
+            card.style.transition = "transform 0.5s ease";
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // Menghilangkan transisi delay agar responsif saat mouse kembali bergerak
+        document.addEventListener('mouseenter', () => {
+            card.style.transition = "none";
+        });
+    </script>
+
+</body>
+</html>
